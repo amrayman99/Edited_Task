@@ -29,6 +29,7 @@ public class base {
     }
 
     @Parameters({"browser"})
+
     @BeforeMethod
     public void setUp(String browser){
 
