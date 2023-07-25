@@ -3,6 +3,7 @@ package pageTest;
 import Base.base;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import page.addToCart;
@@ -69,10 +70,10 @@ public class addToCartTest extends base {
 
         SoftAssert softAssert=new SoftAssert();
 
-        softAssert.assertEquals(convertToFloat(productPriceText),convertToFloat(productPriceTextAtCart));
-        softAssert.assertTrue(productTitleText.contains(productTitleTextAtCart));
-        softAssert.assertEquals(valueOfQuantity,quantityAtCart);
-        softAssert.assertEquals((convertToFloat(productPriceText)*valueOfQuantityAsInt),convertToFloat(subTotalAtCart));
+        softAssert.assertEquals(convertToFloat(productPriceText),convertToFloat(productPriceTextAtCart),"Price is different");
+        softAssert.assertTrue(containsSubstring(productTitleText,productTitleTextAtCart),"Title is different");
+        softAssert.assertEquals(valueOfQuantity,quantityAtCart,"Quantity is different");
+        softAssert.assertEquals((convertToFloat(productPriceText)*valueOfQuantityAsInt),convertToFloat(subTotalAtCart),"Total price is different");
 
         softAssert.assertAll();
 
@@ -85,6 +86,17 @@ public class addToCartTest extends base {
         int integerValue = Integer.parseInt(numericString);
 
         return (float) (integerValue / 100.0);
+    }
+
+    public static boolean containsSubstring(String mainString, String subString) {
+        if (subString.endsWith("…")) {
+            int lastIndex = subString.lastIndexOf(" ");
+            if (lastIndex != -1) {
+                subString = subString.substring(0, lastIndex);
+            }
+        }
+
+        return mainString.contains(subString);
     }
 
 }

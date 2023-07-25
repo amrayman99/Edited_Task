@@ -7,13 +7,13 @@
   </listeners>
   <test thread-count="5" name="End To End Test(failed)">
     <classes>
-      <class name="pageTest.accountTest">
+      <class name="pageTest.addToCartTest">
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="list_privilege"/>
+          <include name="Verify_that_Items_are_added_to_cart_correctly"/>
         </methods>
-      </class> <!-- pageTest.accountTest -->
+      </class> <!-- pageTest.addToCartTest -->
     </classes>
   </test> <!-- End To End Test(failed) -->
 </suite> <!-- Failed suite [All Test Suite] -->

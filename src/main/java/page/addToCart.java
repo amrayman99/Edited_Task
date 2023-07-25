@@ -47,7 +47,7 @@ public class addToCart extends base {
     @FindBy(xpath = "(//span[@class='a-truncate-cut'])[1]")
     public WebElement ProductTitleAtCart;
 
-    @FindBy(xpath = "(//span[@dir='ltr'])[9]")
+    @FindBy(xpath = "(//span[@dir='ltr'])[7]")
     public WebElement ProductPrice;
 
     @FindBy(xpath = "//span[@class='a-size-medium a-color-base sc-price sc-white-space-nowrap sc-product-price a-text-bold']")
